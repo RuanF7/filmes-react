@@ -1,11 +1,26 @@
-import React from 'react';
-import './index.css';
+import { Route, BrowserRouter, Routes, Link } from 'react-router-dom';
+import Home from './components/pages/Home';
+import Contact from './components/pages/Contact';
+import Container from './components/layout/Container';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <p>Marvel Snap</p>
-    </div>
+    <BrowserRouter>
+      <div>
+        <Link to='/'>Home</Link>
+        <Link to='/contact'>Contato</Link>
+      </div>
+      <Container>
+        <Routes>
+          <Route path='/' element={<Home />}>
+          </Route>
+          <Route path='/contact' element={<Contact />}>
+          </Route>
+        </Routes>
+      </Container>
+
+      <p>Footer</p>
+    </BrowserRouter>
   );
 }
 
